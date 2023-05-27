@@ -13,15 +13,14 @@ class OnboardScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Align(
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  'assets/pan.jpg',
-                  height: 400,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                )),
+            Image.asset(
+              'assets/pan.png',
+              height: 400,
+              fit: BoxFit.cover,
+              alignment: Alignment.center,
+            ),
             Container(
+              margin: EdgeInsets.only(bottom: 50),
               decoration: const BoxDecoration(
                   color: kDarkColor,
                   borderRadius: BorderRadius.all(
