@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/onBoard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: OnboardScreen(),
+      routes: {HomeScreen.routeName: (ctx) => const HomeScreen()},
     );
   }
 }
