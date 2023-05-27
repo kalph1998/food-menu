@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         useMaterial3: true,
       ),
-      home: const OnboardScreen(),
+      home: OnboardScreen(),
     );
   }
 }
