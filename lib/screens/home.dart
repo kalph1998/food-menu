@@ -171,6 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     top: 16,
                     child: Container(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Menu for Dinner",
@@ -206,10 +207,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                   size: 18,
                                 ),
                               ),
+                              SizedBox(
+                                width: 10,
+                              ),
                               Text(
                                 "30 min",
                                 style: TextStyle(color: kPrimaryColor),
-                              )
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                    color: kPrimaryColor,
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: Icon(
+                                  Icons.local_fire_department_outlined,
+                                  size: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                "Easy lvl",
+                                style: TextStyle(color: kPrimaryColor),
+                              ),
                             ],
                           )
                         ],
