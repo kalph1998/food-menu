@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
       title: 'Food Menu',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-        primaryColor: kPrimaryColor,
-        useMaterial3: true,
-      ),
+          fontFamily: GoogleFonts.lato().fontFamily,
+          primaryColor: kPrimaryColor,
+          useMaterial3: true,
+          visualDensity: VisualDensity.adaptivePlatformDensity),
       home: OnboardScreen(),
       routes: {HomeScreen.routeName: (ctx) => const HomeScreen()},
     );
