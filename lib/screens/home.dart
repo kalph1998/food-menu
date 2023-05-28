@@ -8,11 +8,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kDarkColor,
+      appBar: AppBar(
         backgroundColor: kDarkColor,
-        appBar: AppBar(
-          backgroundColor: kDarkColor,
-          title:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
               "Hi,Arnold",
               style: TextStyle(
@@ -25,8 +26,38 @@ class HomeScreen extends StatelessWidget {
                     color: kLightGreyFontColor,
                     fontWeight: FontWeight.w700,
                     fontSize: 14))
-          ]),
-          centerTitle: false,
-        ));
+          ],
+        ),
+        centerTitle: false,
+        actions: [
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                margin: EdgeInsets.only(right: 20),
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+              ),
+              Positioned(
+                right: 18,
+                top: -3,
+                child: Container(
+                  height: 14,
+                  width: 14,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: kRedColor,
+                      border: Border.all(color: Colors.white, width: 1)),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
