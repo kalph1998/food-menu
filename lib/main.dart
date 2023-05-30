@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/home.dart';
+import 'package:food_menu/screens/mealDetail.dart';
 import 'package:food_menu/screens/onBoard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light));
+      statusBarIconBrightness: Brightness.dark));
   runApp(const MyApp());
 }
 
@@ -27,7 +28,10 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: OnboardScreen(),
-      routes: {HomeScreen.routeName: (ctx) => HomeScreen()},
+      routes: {
+        HomeScreen.routeName: (ctx) => const HomeScreen(),
+        MealDetail.routeName: (ctx) => const MealDetail(),
+      },
     );
   }
 }
