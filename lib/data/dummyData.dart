@@ -56,7 +56,7 @@ const dummyMeals = [
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        'https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?w=2000&t=st=1685429546~exp=1685430146~hmac=94cf5df3871fad99f9e42aaad0cd554a2f946a35a2fdaa1ec814f89d62ec5889',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -78,6 +78,38 @@ const dummyMeals = [
     isGlutenFree: false,
     isVegan: true,
     isVegetarian: true,
+    isLactoseFree: true,
+  ),
+  Meal(
+    id: 'm3',
+    categories: [
+      'c2',
+      'c3',
+    ],
+    title: 'Classic Hamburger',
+    affordability: Affordability.pricey,
+    complexity: Complexity.simple,
+    imageUrl:
+        'https://img.freepik.com/free-photo/front-view-yummy-meat-cheeseburger-with-french-fries-dark-background-dinner-burgers-snack-fast-food-sandwich-salad-dish-toast_140725-159215.jpg?w=1800&t=st=1685429682~exp=1685430282~hmac=440695bba53e188eba779d75554aaa46bd515abfffd28a4fd955d5b4dc0bcfa4',
+    duration: 45,
+    ingredients: [
+      '300g Cattle Hack',
+      '1 Tomato',
+      '1 Cucumber',
+      '1 Onion',
+      'Ketchup',
+      '2 Burger Buns'
+    ],
+    steps: [
+      'Form 2 patties',
+      'Fry the patties for c. 4 minutes on each side',
+      'Quickly fry the buns for c. 1 minute on each side',
+      'Bruch buns with ketchup',
+      'Serve burger with tomato, cucumber and onion'
+    ],
+    isGlutenFree: false,
+    isVegan: false,
+    isVegetarian: false,
     isLactoseFree: true,
   ),
   Meal(
@@ -109,38 +141,6 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm3',
-    categories: [
-      'c2',
-      'c3',
-    ],
-    title: 'Classic Hamburger',
-    affordability: Affordability.pricey,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
-    duration: 45,
-    ingredients: [
-      '300g Cattle Hack',
-      '1 Tomato',
-      '1 Cucumber',
-      '1 Onion',
-      'Ketchup',
-      '2 Burger Buns'
-    ],
-    steps: [
-      'Form 2 patties',
-      'Fry the patties for c. 4 minutes on each side',
-      'Quickly fry the buns for c. 1 minute on each side',
-      'Bruch buns with ketchup',
-      'Serve burger with tomato, cucumber and onion'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
-  ),
-  Meal(
     id: 'm4',
     categories: [
       'c4',
@@ -149,7 +149,7 @@ const dummyMeals = [
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+        'https://img.freepik.com/free-photo/top-view-schnitzel-with-cream-cheese-with-baked-potatoes-foil-with-vegetables-board_141793-4121.jpg?w=1480&t=st=1685429823~exp=1685430423~hmac=612f3bdd45841e621ffab4d3cd94f40b282176bdf3d4fd7fd6dc86a3d1c2a77f',
     duration: 60,
     ingredients: [
       '8 Veal Cutlets',
