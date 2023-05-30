@@ -19,7 +19,7 @@ class _MealGridViewState extends State<MealGridView> {
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.2),
+                (MediaQuery.of(context).size.height / 1.1),
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
