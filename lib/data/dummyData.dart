@@ -320,7 +320,7 @@ const dummyMeals = [
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
+        'https://img.freepik.com/free-photo/chocolate-pancakes-with-chocolate-syrup-banana_114579-3045.jpg?w=1480&t=st=1685429951~exp=1685430551~hmac=9cf7426d942faf1a803071cf6e9fafc1777ca3c1b15bc129422f34e1076a00f4',
     duration: 45,
     ingredients: [
       '1 Teaspoon melted Butter',
