@@ -5,7 +5,6 @@ import 'package:food_menu/components/homeBottomNav.dart';
 import 'package:food_menu/components/mealCategory.dart';
 import 'package:food_menu/components/mealGridView.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/dummyData.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -26,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           width: double.infinity,
           margin: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               HomeBanner(),

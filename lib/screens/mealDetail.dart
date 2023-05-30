@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/data/dummyData.dart';
+import 'package:food_menu/data/meal.dart';
 
 class MealDetail extends StatelessWidget {
   static const routeName = '/meal';
-  const MealDetail({super.key});
+  MealDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final mealId = ModalRoute.of(context)!.settings.arguments;
+
+    Meal selectedMeal =
+        dummyMeals.firstWhere((element) => element.id == mealId);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: kDarkColor,
@@ -51,10 +58,25 @@ class MealDetail extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(children: [
-        Image.network(
-            'https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19739.jpg?w=1800&t=st=1685435116~exp=1685435716~hmac=c2be6006ffef3ccc7d2dd8915dd9182f220907a8da47b29111a661dfd16581d5')
-      ]),
+      body: Column(
+        children: [
+          Hero(
+              tag: 'dash' + selectedMeal.id,
+              child: Image.network(selectedMeal.imageUrl)),
+          Expanded(
+            child: Transform.translate(
+              offset: const Offset(0, -20),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: kDarkColor,
+                ),
+                width: MediaQuery.of(context).size.width,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

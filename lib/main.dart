@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       home: OnboardScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
-        MealDetail.routeName: (ctx) => const MealDetail(),
+        MealDetail.routeName: (ctx) => MealDetail(),
       },
     );
   }

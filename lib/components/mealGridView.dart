@@ -26,8 +26,10 @@ class _MealGridViewState extends State<MealGridView> {
         shrinkWrap: true,
         itemBuilder: (ctx, index) {
           return InkWell(
-            onTap: () =>
-                {Navigator.of(context).pushNamed(MealDetail.routeName)},
+            onTap: () => {
+              Navigator.pushNamed(context, MealDetail.routeName,
+                  arguments: dummyMeals[index].id)
+            },
             child: Container(
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
@@ -43,10 +45,13 @@ class _MealGridViewState extends State<MealGridView> {
                   ]),
               child: Column(
                 children: [
-                  Image.network(
-                    dummyMeals[index].imageUrl,
-                    fit: BoxFit.cover,
-                    height: 130,
+                  Hero(
+                    tag: 'dash' + dummyMeals[index].id,
+                    child: Image.network(
+                      dummyMeals[index].imageUrl,
+                      fit: BoxFit.cover,
+                      height: 130,
+                    ),
                   ),
                   Expanded(
                     child: Container(
