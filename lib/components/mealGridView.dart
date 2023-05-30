@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummyData.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MealGridView extends StatefulWidget {
   const MealGridView({super.key});
@@ -17,7 +18,7 @@ class _MealGridViewState extends State<MealGridView> {
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.3),
+                (MediaQuery.of(context).size.height / 1.2),
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
@@ -59,8 +60,20 @@ class _MealGridViewState extends State<MealGridView> {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          RatingBar.builder(
+                            initialRating: 4,
+                            itemSize: 20,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (context, _) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              opticalSize: 10,
+                            ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: OnboardScreen(),
-      routes: {HomeScreen.routeName: (ctx) => const HomeScreen()},
+      routes: {HomeScreen.routeName: (ctx) => HomeScreen()},
     );
   }
 }
