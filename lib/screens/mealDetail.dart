@@ -69,7 +69,7 @@ class MealDetail extends StatelessWidget {
               offset: const Offset(0, -20),
               child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(40),
                     color: kDarkGreyColor,
                   ),
                   width: MediaQuery.of(context).size.width,

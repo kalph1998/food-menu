@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_menu/components/mealDetailTab.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
 
@@ -9,7 +10,7 @@ class MealInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
         children: [
           Text(
@@ -20,11 +21,11 @@ class MealInfo extends StatelessWidget {
               fontSize: 26,
             ),
           ),
-          SizedBox(
-            height: 20,
+          const SizedBox(
+            height: 50,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 14),
@@ -39,7 +40,7 @@ class MealInfo extends StatelessWidget {
                       "40 minute",
                       style: TextStyle(
                           color: kLightFontColor,
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
@@ -67,14 +68,14 @@ class MealInfo extends StatelessWidget {
                       size: 24,
                     ),
                     Text(
-                      "40 minute",
+                      "4.08",
                       style: TextStyle(
                           color: kLightFontColor,
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      "Cooking",
+                      "Rating",
                       style: TextStyle(
                           color: kLightGreyFontColor,
                           fontSize: 12,
@@ -98,14 +99,14 @@ class MealInfo extends StatelessWidget {
                       size: 24,
                     ),
                     Text(
-                      "40 minute",
+                      "Easy level",
                       style: TextStyle(
                           color: kLightFontColor,
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      "Cooking",
+                      "Recipes",
                       style: TextStyle(
                           color: kLightGreyFontColor,
                           fontSize: 12,
@@ -115,7 +116,11 @@ class MealInfo extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          MealDetailTab()
         ],
       ),
     );
