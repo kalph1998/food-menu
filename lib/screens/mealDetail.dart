@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_menu/components/mealInfo.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummyData.dart';
 import 'package:food_menu/data/meal.dart';
@@ -67,12 +68,12 @@ class MealDetail extends StatelessWidget {
             child: Transform.translate(
               offset: const Offset(0, -20),
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: kDarkColor,
-                ),
-                width: MediaQuery.of(context).size.width,
-              ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: kDarkGreyColor,
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                  child: MealInfo(selectedMeal: selectedMeal)),
             ),
           )
         ],
