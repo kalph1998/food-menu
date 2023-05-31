@@ -32,8 +32,8 @@ class HomeBanner extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 16,
-            top: 16,
+            left: 10,
+            top: 10,
             child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
