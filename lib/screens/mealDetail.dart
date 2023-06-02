@@ -68,12 +68,13 @@ class MealDetail extends StatelessWidget {
             child: Transform.translate(
               offset: const Offset(0, -20),
               child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: kDarkGreyColor,
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                  child: MealInfo(selectedMeal: selectedMeal)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color: kDarkGreyColor,
+                ),
+                width: MediaQuery.of(context).size.width,
+                child: MealInfo(selectedMeal: selectedMeal),
+              ),
             ),
           )
         ],
