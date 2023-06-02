@@ -254,22 +254,3 @@ class _MealInfoState extends State<MealInfo> {
 }
 
 enum TabValues { instructions, ingredients }
-
-
-  //  Container(
-  //                     width: double.infinity,
-  //                     margin: EdgeInsets.symmetric(vertical: 10),
-  //                     padding: const EdgeInsets.symmetric(
-  //                         vertical: 10, horizontal: 10),
-  //                     decoration: BoxDecoration(
-  //                       color: kDarkColor,
-  //                       borderRadius: BorderRadius.circular(8),
-  //                     ),
-  //                     child: Text(
-  //                       widget.selectedMeal.ingredients[i],
-  //                       textAlign: TextAlign.center,
-  //                       style: const TextStyle(
-  //                           color: kDarkGreyFontColor,
-  //                           fontWeight: FontWeight.w700),
-  //                     ),
-  //                   ),
