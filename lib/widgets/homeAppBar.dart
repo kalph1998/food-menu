@@ -10,6 +10,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: kDarkColor,
+      leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.menu,
+            color: kLightFontColor,
+          )),
       title: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

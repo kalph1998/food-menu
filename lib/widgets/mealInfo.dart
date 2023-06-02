@@ -143,7 +143,7 @@ class _MealInfoState extends State<MealInfo> {
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 30),
+                        vertical: 10, horizontal: 26),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: selectedTab == TabValues.instructions

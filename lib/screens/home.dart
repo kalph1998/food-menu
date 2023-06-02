@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_menu/components/homeAppBar.dart';
-import 'package:food_menu/components/homeBanner.dart';
-import 'package:food_menu/components/homeBottomNav.dart';
-import 'package:food_menu/components/mealCategory.dart';
-import 'package:food_menu/components/mealGridView.dart';
+import 'package:food_menu/widgets/homeAppBar.dart';
+import 'package:food_menu/widgets/homeBanner.dart';
+import 'package:food_menu/widgets/homeBottomNav.dart';
+import 'package:food_menu/widgets/mealCategory.dart';
+import 'package:food_menu/widgets/mealGridView.dart';
 import 'package:food_menu/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: kDarkColor,
       appBar: const HomeAppBar(),
+      drawer: Drawer(),
       bottomNavigationBar: const HomeBottomNavBar(),
       body: SingleChildScrollView(
         child: Container(
