@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_menu/widgets/homeAppBar.dart';
 import 'package:food_menu/widgets/homeBanner.dart';
 import 'package:food_menu/widgets/homeBottomNav.dart';
+import 'package:food_menu/widgets/mainDrawer.dart';
 import 'package:food_menu/widgets/mealCategory.dart';
 import 'package:food_menu/widgets/mealGridView.dart';
 import 'package:food_menu/constants.dart';
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: kDarkColor,
       appBar: const HomeAppBar(),
-      drawer: Drawer(),
+      drawer: MainDrawer(),
       bottomNavigationBar: const HomeBottomNavBar(),
       body: SingleChildScrollView(
         child: Container(

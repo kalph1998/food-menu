@@ -11,7 +11,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: kDarkColor,
       leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
           icon: Icon(
             Icons.menu,
             color: kLightFontColor,
