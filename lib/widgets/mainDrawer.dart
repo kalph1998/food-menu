@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/widgets/homeAppBar.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -19,17 +20,62 @@ class MainDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: kPrimaryColor,
             ),
-            child: Text('Drawer Header'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  radius: 36,
+                  backgroundImage: NetworkImage(HomeAppBar.profileUrl),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Amanda Cerny",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                )
+              ],
+            ),
           ),
           ListTile(
-            title: const Text('Item 1'),
+            title: Row(children: const [
+              Icon(
+                Icons.home_outlined,
+                color: kDarkGreyFontColor,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                'Home',
+                style: TextStyle(
+                    color: kLightFontColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+            ]),
             onTap: () {
               // Update the state of the app.
               // ...
             },
           ),
           ListTile(
-            title: const Text('Item 2'),
+            title: Row(children: const [
+              Icon(
+                Icons.favorite,
+                color: kDarkGreyFontColor,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                'Favorites',
+                style: TextStyle(
+                    color: kLightFontColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+            ]),
             onTap: () {
               // Update the state of the app.
               // ...

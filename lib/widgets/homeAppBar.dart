@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String profileUrl =
+  static const String profileUrl =
       'https://images.pexels.com/photos/5795034/pexels-photo-5795034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
   const HomeAppBar({super.key});
 
