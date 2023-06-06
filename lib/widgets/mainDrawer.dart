@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/widgets/homeAppBar.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -38,44 +39,51 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Row(children: const [
-              Icon(
-                Icons.home_outlined,
-                color: kDarkGreyFontColor,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                'Home',
-                style: TextStyle(
-                    color: kLightFontColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              ),
-            ]),
+            leading: Icon(
+              Icons.home,
+              color: kDarkGreyFontColor,
+            ),
+            title: Text(
+              'Home',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               // Update the state of the app.
               // ...
             },
           ),
           ListTile(
-            title: Row(children: const [
-              Icon(
-                Icons.favorite,
-                color: kDarkGreyFontColor,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                'Favorites',
-                style: TextStyle(
-                    color: kLightFontColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              ),
-            ]),
+            leading: Icon(
+              Icons.favorite,
+              color: kDarkGreyFontColor,
+            ),
+            title: Text(
+              'Favorites',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.settings,
+              color: kDarkGreyFontColor,
+            ),
+            title: Text(
+              'Settings',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               // Update the state of the app.
               // ...
