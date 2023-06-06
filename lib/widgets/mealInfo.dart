@@ -143,7 +143,7 @@ class _MealInfoState extends State<MealInfo> {
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 26),
+                        vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: selectedTab == TabValues.instructions
@@ -156,7 +156,7 @@ class _MealInfoState extends State<MealInfo> {
                         color: selectedTab == TabValues.instructions
                             ? kPrimaryColor
                             : kDarkGreyFontColor,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -184,7 +184,7 @@ class _MealInfoState extends State<MealInfo> {
                         color: selectedTab == TabValues.ingredients
                             ? kPrimaryColor
                             : kDarkGreyFontColor,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
