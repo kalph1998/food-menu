@@ -27,16 +27,16 @@ class _MealInfoState extends State<MealInfo> {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 14),
-                child: Column(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: const Column(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.schedule,
                       color: kPrimaryColor,
                       size: 24,
@@ -123,7 +123,7 @@ class _MealInfoState extends State<MealInfo> {
             ],
           ),
           SizedBox(
-            height: 50,
+            height: 30,
           ),
           Container(
             padding: const EdgeInsets.all(10),
