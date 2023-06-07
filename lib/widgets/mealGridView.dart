@@ -46,7 +46,7 @@ class _MealGridViewState extends State<MealGridView> {
               child: Column(
                 children: [
                   Hero(
-                    tag: 'dash' + dummyMeals[index].id,
+                    tag: 'dash${dummyMeals[index].id}',
                     child: Image.network(
                       dummyMeals[index].imageUrl,
                       fit: BoxFit.cover,
@@ -84,26 +84,23 @@ class _MealGridViewState extends State<MealGridView> {
                                 print(rating);
                               },
                             ),
-                            const Row(
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
-                                  '60 \n Min',
+                                  '${dummyMeals[index].duration}  Min',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: kLightGreyFontColor,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                Text(
-                                  '|',
-                                  style: TextStyle(
-                                    color: kLightGreyFontColor,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                SizedBox(
+                                  width: 40,
+                                  child: Divider(),
                                 ),
                                 Text(
-                                  'Hard \n Lvl',
+                                  '${dummyMeals[index].complexity.name} Lvl',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: kLightGreyFontColor,

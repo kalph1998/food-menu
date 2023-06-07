@@ -14,6 +14,7 @@ class _MealInfoState extends State<MealInfo> {
   TabValues selectedTab = TabValues.instructions;
   @override
   Widget build(BuildContext context) {
+    print(widget.selectedMeal.complexity);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
@@ -34,21 +35,21 @@ class _MealInfoState extends State<MealInfo> {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: const Column(
+                child: Column(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.schedule,
                       color: kPrimaryColor,
                       size: 24,
                     ),
                     Text(
-                      "40 minute",
+                      "${widget.selectedMeal.duration} minute",
                       style: TextStyle(
                           color: kLightFontColor,
                           fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
-                    Text(
+                    const Text(
                       "Cooking",
                       style: TextStyle(
                           color: kLightGreyFontColor,
@@ -104,7 +105,7 @@ class _MealInfoState extends State<MealInfo> {
                       size: 24,
                     ),
                     Text(
-                      "Easy level",
+                      widget.selectedMeal.complexity.name,
                       style: TextStyle(
                           color: kLightFontColor,
                           fontSize: 18,

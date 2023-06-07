@@ -7,7 +7,7 @@ import 'package:food_menu/screens/onBoard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark));
   runApp(const MyApp());
