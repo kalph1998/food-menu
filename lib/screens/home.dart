@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: kDarkColor,
       appBar: const HomeAppBar(),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       bottomNavigationBar: const HomeBottomNavBar(),
       body: SingleChildScrollView(
         child: Container(

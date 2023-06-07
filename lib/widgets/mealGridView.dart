@@ -70,19 +70,18 @@ class _MealGridViewState extends State<MealGridView> {
                               ),
                             ),
                             RatingBar.builder(
-                              initialRating: 4,
+                              initialRating:
+                                  dummyMeals[index].rating.toDouble(),
                               itemSize: 20,
                               minRating: 1,
                               direction: Axis.horizontal,
                               itemCount: 5,
-                              itemBuilder: (context, _) => Icon(
+                              itemBuilder: (context, _) => const Icon(
                                 Icons.star,
                                 color: Colors.amber,
                                 opticalSize: 10,
                               ),
-                              onRatingUpdate: (rating) {
-                                print(rating);
-                              },
+                              onRatingUpdate: (rating) {},
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,7 +94,7 @@ class _MealGridViewState extends State<MealGridView> {
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 40,
                                   child: Divider(),
                                 ),
