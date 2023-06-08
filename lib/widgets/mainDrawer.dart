@@ -74,6 +74,23 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.filter_alt,
+              color: kDarkGreyFontColor,
+            ),
+            title: Text(
+              'Filters',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.settings,
               color: kDarkGreyFontColor,
             ),

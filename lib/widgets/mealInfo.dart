@@ -14,7 +14,6 @@ class _MealInfoState extends State<MealInfo> {
   TabValues selectedTab = TabValues.instructions;
   @override
   Widget build(BuildContext context) {
-    print(widget.selectedMeal.complexity);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
