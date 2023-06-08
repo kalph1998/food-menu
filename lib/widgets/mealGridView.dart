@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummyData.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:food_menu/providers/meals_provider.dart';
 import 'package:food_menu/screens/mealDetail.dart';
+import 'package:riverpod/riverpod.dart';
 
-class MealGridView extends StatefulWidget {
+class MealGridView extends ConsumerStatefulWidget {
   const MealGridView({super.key});
 
   @override
-  State<MealGridView> createState() => _MealGridViewState();
+  ConsumerState<MealGridView> createState() => _MealGridViewState();
 }
 
-class _MealGridViewState extends State<MealGridView> {
+class _MealGridViewState extends ConsumerState<MealGridView> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        itemCount: dummyMeals.length,
+        itemCount: ref.watch(mealsProvider).length,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: MediaQuery.of(context).size.width /
