@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final String subtitle;
   static const String profileUrl =
       'https://images.pexels.com/photos/5795034/pexels-photo-5795034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-  const HomeAppBar({super.key});
+  const HomeAppBar({super.key, required this.title, required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +20,24 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             Icons.menu,
             color: kLightFontColor,
           )),
-      title: const Column(
+      title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Hi, Amanda",
-            style: TextStyle(
+            title,
+            style: const TextStyle(
                 color: kLightFontColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 24),
           ),
-          Text('Ready to cook for dinner ?',
-              style: TextStyle(
-                  color: kLightGreyFontColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14))
+          Text(
+            subtitle,
+            style: const TextStyle(
+              color: kLightGreyFontColor,
+              fontWeight: FontWeight.w700,
+              fontSize: 14,
+            ),
+          )
         ],
       ),
       centerTitle: false,

@@ -20,7 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDarkColor,
-      appBar: const HomeAppBar(),
+      appBar: const HomeAppBar(
+        title: 'Hi, Amanda',
+        subtitle: 'Ready to cook for dinner ?',
+      ),
       drawer: const MainDrawer(),
       body: SingleChildScrollView(
         child: Container(
