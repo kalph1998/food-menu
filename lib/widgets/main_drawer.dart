@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/screens/home.dart';
-import 'package:food_menu/widgets/home_appbar.dart';
+import 'package:food_menu/widgets/home_app_bar.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});

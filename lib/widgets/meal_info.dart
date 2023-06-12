@@ -3,7 +3,7 @@ import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
 
 class MealInfo extends StatefulWidget {
-  Meal selectedMeal;
+  final Meal selectedMeal;
   MealInfo({super.key, required this.selectedMeal});
 
   @override

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
 import 'package:food_menu/providers/favorites_provider.dart';
-import 'package:food_menu/widgets/home_appbar.dart';
+import 'package:food_menu/widgets/home_app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
 
 class FavoritesScreen extends ConsumerWidget {
@@ -13,7 +13,7 @@ class FavoritesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<Meal> favoriteMeals = ref.watch(favoriteMealsProvider);
+    final List<Meal> favoriteMeals = ref.watch(favoriteMealsProvider);
 
     return Scaffold(
       backgroundColor: kDarkColor,
