@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_menu/providers/favorites_provider.dart';
 import 'package:food_menu/widgets/mealInfo.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummyData.dart';
 import 'package:food_menu/data/meal.dart';
 
-class MealDetail extends StatelessWidget {
+class MealDetail extends ConsumerWidget {
   static const routeName = '/meal';
   MealDetail({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final mealId = ModalRoute.of(context)!.settings.arguments;
 
     Meal selectedMeal =
@@ -54,7 +56,18 @@ class MealDetail extends StatelessWidget {
                 color: kRedColor,
                 size: 28,
               ),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                final wasAdded = ref
+                    .read(favoriteMealsProvider.notifier)
+                    .toggleMealFavoriteStatus(selectedMeal);
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                        wasAdded ? 'Meal added as favorite' : 'Meal removed'),
+                  ),
+                );
+              },
             ),
           ),
         ],
