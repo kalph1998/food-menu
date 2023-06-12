@@ -6,6 +6,7 @@ import 'package:food_menu/screens/favorites.dart';
 import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/mealDetail.dart';
 import 'package:food_menu/screens/onBoard.dart';
+import 'package:food_menu/screens/tab.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         MealDetail.routeName: (ctx) => MealDetail(),
         FavoritesScreen.routeName: (ctx) => FavoritesScreen(),
+        HomeBottomNavBar.routeName: (ctx) => HomeBottomNavBar(),
       },
     );
   }

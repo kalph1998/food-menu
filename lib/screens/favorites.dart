@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/widgets/homeAppBar.dart';
-import 'package:food_menu/widgets/homeBottomNav.dart';
 import 'package:food_menu/widgets/mainDrawer.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -16,7 +14,7 @@ class FavoritesScreen extends StatelessWidget {
       backgroundColor: kDarkColor,
       appBar: const HomeAppBar(),
       drawer: const MainDrawer(),
-      bottomNavigationBar: const HomeBottomNavBar(),
+      body: Center(child: Text('favorites screen')),
     );
   }
 }
