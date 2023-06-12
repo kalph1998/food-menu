@@ -6,6 +6,7 @@ import 'package:food_menu/data/meal.dart';
 import 'package:food_menu/providers/favorites_provider.dart';
 import 'package:food_menu/widgets/home_app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
+import 'package:food_menu/widgets/meal_tile.dart';
 
 class FavoritesScreen extends ConsumerWidget {
   static const routeName = '/favorites';
@@ -16,14 +17,33 @@ class FavoritesScreen extends ConsumerWidget {
     final List<Meal> favoriteMeals = ref.watch(favoriteMealsProvider);
 
     return Scaffold(
-      backgroundColor: kDarkColor,
-      appBar: const HomeAppBar(
-        title: 'Favorite meals',
-        subtitle: 'Your favorite meals',
-      ),
-      drawer: const MainDrawer(),
-      body: NoFavoritesCenterText(),
-    );
+        backgroundColor: kDarkColor,
+        appBar: const HomeAppBar(
+          title: 'Favorite meals',
+          subtitle: 'Your favorite meals',
+        ),
+        drawer: const MainDrawer(),
+        body: favoriteMeals.isEmpty
+            ? const NoFavoritesCenterText()
+            : Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: GridView.builder(
+                  itemCount: favoriteMeals.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 1.1),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20),
+                  shrinkWrap: true,
+                  itemBuilder: (ctx, index) {
+                    return MealTile(
+                      meal: favoriteMeals[index],
+                    );
+                  },
+                ),
+              ));
   }
 }
 
