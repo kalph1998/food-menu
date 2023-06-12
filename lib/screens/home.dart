@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_menu/widgets/homeAppBar.dart';
-import 'package:food_menu/widgets/homeBanner.dart';
-import 'package:food_menu/screens/tab.dart';
-import 'package:food_menu/widgets/mainDrawer.dart';
-import 'package:food_menu/widgets/mealCategory.dart';
-import 'package:food_menu/widgets/mealGridView.dart';
+import 'package:food_menu/widgets/home_appbar.dart';
+import 'package:food_menu/widgets/home_banner.dart';
+import 'package:food_menu/widgets/main_drawer.dart';
+import 'package:food_menu/widgets/meal_category.dart';
+import 'package:food_menu/widgets/meal_grid_view.dart';
 import 'package:food_menu/constants.dart';
 
 class HomeScreen extends StatefulWidget {

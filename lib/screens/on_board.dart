@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/tab.dart';
 
 class OnboardScreen extends StatelessWidget {

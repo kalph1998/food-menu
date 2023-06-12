@@ -1,4 +1,4 @@
-import 'package:food_menu/data/dummyData.dart';
+import 'package:food_menu/data/dummy_data.dart';
 import 'package:riverpod/riverpod.dart';
 
 final mealsProvider = Provider((ref) {

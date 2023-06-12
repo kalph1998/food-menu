@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
-import 'package:food_menu/screens/mealDetail.dart';
+import 'package:food_menu/screens/meal_detail.dart';
 
 class MealTile extends StatelessWidget {
   final Meal meal;

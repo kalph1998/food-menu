@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/providers/favorites_provider.dart';
-import 'package:food_menu/widgets/mealInfo.dart';
+import 'package:food_menu/widgets/meal_info.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/dummyData.dart';
+import 'package:food_menu/data/dummy_data.dart';
 import 'package:food_menu/data/meal.dart';
 
 class MealDetail extends ConsumerWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/providers/meals_provider.dart';
-import 'package:food_menu/widgets/mealTile.dart';
+import 'package:food_menu/widgets/meal_tile.dart';
 
 class MealGridView extends ConsumerStatefulWidget {
   const MealGridView({super.key});

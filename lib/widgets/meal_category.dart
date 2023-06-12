@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/dummyData.dart';
+import 'package:food_menu/data/dummy_data.dart';
 
 class MealCategoryListView extends StatefulWidget {
   const MealCategoryListView({super.key});

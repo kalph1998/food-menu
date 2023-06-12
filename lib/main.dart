@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/favorites.dart';
 import 'package:food_menu/screens/home.dart';
-import 'package:food_menu/screens/mealDetail.dart';
-import 'package:food_menu/screens/onBoard.dart';
+import 'package:food_menu/screens/meal_detail.dart';
+import 'package:food_menu/screens/on_board.dart';
 import 'package:food_menu/screens/tab.dart';
 import 'package:google_fonts/google_fonts.dart';
 
