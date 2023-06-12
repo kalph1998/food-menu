@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/favorites.dart';
 import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/mealDetail.dart';
 import 'package:food_menu/screens/onBoard.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         MealDetail.routeName: (ctx) => MealDetail(),
+        FavoritesScreen.routeName: (ctx) => FavoritesScreen(),
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/favorites.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
   const HomeBottomNavBar({super.key});
@@ -25,6 +26,10 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
         setState(() {
           selectedTabIndex = index;
         });
+        print(index);
+        if (index == 1) {
+          Navigator.of(context).pushNamed(FavoritesScreen.routeName);
+        }
       },
       items: [
         BottomNavigationBarItem(
