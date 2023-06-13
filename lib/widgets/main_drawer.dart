@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/screens/home.dart';
+import 'package:food_menu/screens/meal_filters.dart';
 import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/home_app_bar.dart';
 
@@ -40,11 +40,11 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.home,
               color: kDarkGreyFontColor,
             ),
-            title: Text(
+            title: const Text(
               'Home',
               style: TextStyle(
                   color: kLightFontColor,
@@ -65,11 +65,11 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.favorite,
               color: kDarkGreyFontColor,
             ),
-            title: Text(
+            title: const Text(
               'Favorites',
               style: TextStyle(
                   color: kLightFontColor,
@@ -90,7 +90,7 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.filter_alt,
               color: kDarkGreyFontColor,
             ),
@@ -102,6 +102,9 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context)
+                  .pushReplacementNamed(FilterScreen.routeName);
               // Update the state of the app.
               // ...
             },
