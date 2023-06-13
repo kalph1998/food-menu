@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/home.dart';
+import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/home_app_bar.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -50,6 +52,14 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => HomeBottomNavBar(
+                    selectedTabIndex: 0,
+                  ),
+                ),
+              );
               // Update the state of the app.
               // ...
             },
@@ -67,6 +77,14 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => HomeBottomNavBar(
+                    selectedTabIndex: 1,
+                  ),
+                ),
+              );
               // Update the state of the app.
               // ...
             },

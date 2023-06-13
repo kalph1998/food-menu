@@ -4,19 +4,18 @@ import 'package:food_menu/screens/favorites.dart';
 import 'package:food_menu/screens/home.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
+  int selectedTabIndex;
   static const routeName = '/tab';
-  const HomeBottomNavBar({super.key});
+  HomeBottomNavBar({super.key, this.selectedTabIndex = 0});
 
   @override
   State<HomeBottomNavBar> createState() => _MyWidgetState();
 }
 
 class _MyWidgetState extends State<HomeBottomNavBar> {
-  int selectedTabIndex = 0;
-
   void _selectPage(int index) {
     setState(() {
-      selectedTabIndex = index;
+      widget.selectedTabIndex = index;
     });
   }
 
@@ -24,7 +23,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
   Widget build(BuildContext context) {
     Widget activePage = const HomeScreen();
 
-    if (selectedTabIndex == 1) {
+    if (widget.selectedTabIndex == 1) {
       activePage = const FavoritesScreen();
     }
 
@@ -37,7 +36,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: kDarkGreyFontColor,
-        currentIndex: selectedTabIndex,
+        currentIndex: widget.selectedTabIndex,
         onTap: _selectPage,
         items: [
           BottomNavigationBarItem(
@@ -47,11 +46,11 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     Icons.home_outlined,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 4),
+                    margin: const EdgeInsets.only(top: 4),
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                        color: selectedTabIndex == 0
+                        color: widget.selectedTabIndex == 0
                             ? kPrimaryColor
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(30)),
@@ -67,14 +66,15 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     Icons.favorite_border,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 4),
+                    margin: const EdgeInsets.only(top: 4),
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                        color: selectedTabIndex == 1
-                            ? kPrimaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(30)),
+                      color: widget.selectedTabIndex == 1
+                          ? kPrimaryColor
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                   )
                 ],
               ),
@@ -86,11 +86,11 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     Icons.settings_outlined,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 4),
+                    margin: const EdgeInsets.only(top: 4),
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                        color: selectedTabIndex == 2
+                        color: widget.selectedTabIndex == 2
                             ? kPrimaryColor
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(30)),
