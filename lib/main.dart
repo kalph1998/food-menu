@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         MealDetail.routeName: (ctx) => MealDetail(),
         FavoritesScreen.routeName: (ctx) => const FavoritesScreen(),
         HomeBottomNavBar.routeName: (ctx) => HomeBottomNavBar(),
-        FilterScreen.routeName: (ctx) => const FilterScreen()
+        FilterScreen.routeName: (ctx) => FilterScreen()
       },
     );
   }

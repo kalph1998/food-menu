@@ -17,8 +17,6 @@ class _MealGridViewState extends ConsumerState<MealGridView> {
     final meals = ref.watch(mealsProvider);
     final activeFilters = ref.watch(filtersProvider);
 
-    print(activeFilters);
-
     final availableMeals = meals.where((meal) {
       if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
