@@ -1,7 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 
 class MealCategoryNotifier extends StateNotifier<String> {
-  MealCategoryNotifier() : super('');
+  MealCategoryNotifier() : super('c1');
 
   setMealCategoryId(String id) {
     state = id;
@@ -9,4 +9,5 @@ class MealCategoryNotifier extends StateNotifier<String> {
 }
 
 final mealCategoryProvider =
-    StateNotifierProvider((ref) => MealCategoryNotifier());
+    StateNotifierProvider<MealCategoryNotifier, String>(
+        (ref) => MealCategoryNotifier());

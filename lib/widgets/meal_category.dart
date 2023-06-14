@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummy_data.dart';
+import 'package:food_menu/providers/meal_category_provider.dart';
 
-class MealCategoryListView extends StatefulWidget {
+class MealCategoryListView extends ConsumerStatefulWidget {
   const MealCategoryListView({super.key});
 
   @override
-  State<MealCategoryListView> createState() => _MealCategoryListViewState();
+  ConsumerState<MealCategoryListView> createState() =>
+      _MealCategoryListViewState();
 }
 
-class _MealCategoryListViewState extends State<MealCategoryListView> {
+class _MealCategoryListViewState extends ConsumerState<MealCategoryListView> {
   int selectedMealIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,9 @@ class _MealCategoryListViewState extends State<MealCategoryListView> {
               onTap: () {
                 setState(() {
                   selectedMealIndex = index;
+                  ref
+                      .read(mealCategoryProvider.notifier)
+                      .setMealCategoryId(availableCategories[index].id);
                 });
               },
               child: Container(

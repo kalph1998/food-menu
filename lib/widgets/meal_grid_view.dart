@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_menu/data/meal.dart';
 import 'package:food_menu/providers/filters_provider.dart';
+import 'package:food_menu/providers/meal_category_provider.dart';
 import 'package:food_menu/providers/meals_provider.dart';
 import 'package:food_menu/widgets/meal_tile.dart';
 
@@ -16,8 +18,9 @@ class _MealGridViewState extends ConsumerState<MealGridView> {
   Widget build(BuildContext context) {
     final meals = ref.watch(mealsProvider);
     final activeFilters = ref.watch(filtersProvider);
+    final selectedMealCategoryId = ref.watch(mealCategoryProvider);
 
-    final availableMeals = meals.where((meal) {
+    List<Meal> availableMeals = meals.where((meal) {
       if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
@@ -32,6 +35,10 @@ class _MealGridViewState extends ConsumerState<MealGridView> {
       }
       return true;
     }).toList();
+
+    availableMeals = availableMeals
+        .where((element) => element.categories.contains(selectedMealCategoryId))
+        .toList();
 
     return GridView.builder(
         itemCount: availableMeals.length,
