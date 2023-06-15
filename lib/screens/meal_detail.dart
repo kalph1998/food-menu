@@ -13,9 +13,10 @@ class MealDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mealId = ModalRoute.of(context)!.settings.arguments;
-
     Meal selectedMeal =
         dummyMeals.firstWhere((element) => element.id == mealId);
+    final favoriteMeals = ref.watch(favoriteMealsProvider);
+    final bool isMealFavorite = favoriteMeals.contains(selectedMeal);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -40,20 +41,13 @@ class MealDetail extends ConsumerWidget {
           Container(
             margin: const EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
-                color: kLightRedColor,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: const [
-                  BoxShadow(
-                    offset: Offset(1, 1),
-                    spreadRadius: -6,
-                    blurRadius: 39,
-                    color: kLightRedColor,
-                  )
-                ]),
+              color: isMealFavorite ? kLightRedColor : kLightGreyColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.favorite,
-                color: kRedColor,
+                color: isMealFavorite ? kRedColor : kDarkGreyColor,
                 size: 28,
               ),
               onPressed: () {

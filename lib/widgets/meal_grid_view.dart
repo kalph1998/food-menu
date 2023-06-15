@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
 import 'package:food_menu/providers/filters_provider.dart';
 import 'package:food_menu/providers/meal_category_provider.dart';
@@ -21,21 +22,29 @@ class _MealGridViewState extends ConsumerState<MealGridView> {
         .where((element) => element.categories.contains(selectedMealCategoryId))
         .toList();
 
-    return GridView.builder(
-        padding: const EdgeInsets.only(bottom: 20),
-        itemCount: availableMeals.length,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.1),
-            crossAxisCount: 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20),
-        shrinkWrap: true,
-        itemBuilder: (ctx, index) {
-          return MealTile(
-            meal: availableMeals[index],
+    return availableMeals.isEmpty
+        ? const Center(
+            child: Text(
+              "No meals found",
+              style: TextStyle(color: kLightFontColor, fontSize: 18),
+            ),
+          )
+        : GridView.builder(
+            padding: const EdgeInsets.only(bottom: 20),
+            itemCount: availableMeals.length,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 1.1),
+                crossAxisCount: 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20),
+            shrinkWrap: true,
+            itemBuilder: (ctx, index) {
+              return MealTile(
+                meal: availableMeals[index],
+              );
+            },
           );
-        });
   }
 }
