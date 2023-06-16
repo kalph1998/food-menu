@@ -13,7 +13,30 @@ class MealGridView extends ConsumerStatefulWidget {
   ConsumerState<MealGridView> createState() => _MealGridViewState();
 }
 
-class _MealGridViewState extends ConsumerState<MealGridView> {
+class _MealGridViewState extends ConsumerState<MealGridView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+      // lowerBound: 0,
+      // upperBound: 1,
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final selectedMealCategoryId = ref.watch(mealCategoryProvider);
@@ -29,22 +52,29 @@ class _MealGridViewState extends ConsumerState<MealGridView> {
               style: TextStyle(color: kLightFontColor, fontSize: 18),
             ),
           )
-        : GridView.builder(
-            padding: const EdgeInsets.only(bottom: 20),
-            itemCount: availableMeals.length,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: MediaQuery.of(context).size.width /
-                    (MediaQuery.of(context).size.height / 1.1),
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
-            shrinkWrap: true,
-            itemBuilder: (ctx, index) {
-              return MealTile(
-                meal: availableMeals[index],
-              );
-            },
-          );
+        : AnimatedBuilder(
+            animation: _animationController,
+            child: GridView.builder(
+              padding: const EdgeInsets.only(bottom: 20),
+              itemCount: availableMeals.length,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: MediaQuery.of(context).size.width /
+                      (MediaQuery.of(context).size.height / 1.1),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20),
+              shrinkWrap: true,
+              itemBuilder: (ctx, index) {
+                return MealTile(
+                  meal: availableMeals[index],
+                );
+              },
+            ),
+            builder: (ctx, child) => Padding(
+                  padding: EdgeInsets.only(
+                      top: 100 - _animationController.value * 100),
+                  child: child,
+                ));
   }
 }
