@@ -72,14 +72,15 @@ class _MealGridViewState extends ConsumerState<MealGridView>
               },
             ),
             builder: (ctx, child) => SlideTransition(
-                  position: Tween(
-                    begin: const Offset(0, 0.5),
-                    end: const Offset(0, 0),
-                  ).animate(
-                    CurvedAnimation(
-                        parent: _animationController, curve: Curves.easeInOut),
-                  ),
-                  child: child,
-                ));
+              position: Tween(
+                begin: const Offset(0, 0.5),
+                end: const Offset(0, 0),
+              ).animate(
+                CurvedAnimation(
+                    parent: _animationController, curve: Curves.easeInOut),
+              ),
+              child: child,
+            ),
+          );
   }
 }

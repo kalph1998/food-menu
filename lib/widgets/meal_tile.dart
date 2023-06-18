@@ -35,6 +35,7 @@ class MealTile extends StatelessWidget {
                 meal.imageUrl,
                 fit: BoxFit.cover,
                 height: 130,
+                width: double.infinity,
               ),
             ),
             Expanded(

@@ -55,7 +55,7 @@ const dummyMeals = [
       affordability: Affordability.affordable,
       complexity: Complexity.simple,
       imageUrl:
-          'https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?w=2000&t=st=1685429546~exp=1685430146~hmac=94cf5df3871fad99f9e42aaad0cd554a2f946a35a2fdaa1ec814f89d62ec5889',
+          'https://images.pexels.com/photos/4057736/pexels-photo-4057736.jpeg?auto=compress&cs=tinysrgb&w=800',
       duration: 20,
       ingredients: [
         '4 Tomatoes',
@@ -89,7 +89,7 @@ const dummyMeals = [
       affordability: Affordability.pricey,
       complexity: Complexity.simple,
       imageUrl:
-          'https://img.freepik.com/free-photo/front-view-yummy-meat-cheeseburger-with-french-fries-dark-background-dinner-burgers-snack-fast-food-sandwich-salad-dish-toast_140725-159215.jpg?w=1800&t=st=1685429682~exp=1685430282~hmac=440695bba53e188eba779d75554aaa46bd515abfffd28a4fd955d5b4dc0bcfa4',
+          'https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       duration: 45,
       ingredients: [
         '300g Cattle Hack',

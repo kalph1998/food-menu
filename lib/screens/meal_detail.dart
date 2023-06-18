@@ -47,7 +47,7 @@ class MealDetail extends ConsumerWidget {
             child: IconButton(
               icon: Icon(
                 Icons.favorite,
-                color: isMealFavorite ? kRedColor : kDarkGreyColor,
+                color: isMealFavorite ? kRedColor : kDarkGreyFontColor,
                 size: 28,
               ),
               onPressed: () {
@@ -69,11 +69,19 @@ class MealDetail extends ConsumerWidget {
       body: Column(
         children: [
           Hero(
-              tag: 'dash' + selectedMeal.id,
-              child: Image.network(selectedMeal.imageUrl)),
+              tag: 'dash${selectedMeal.id}',
+              child: Container(
+                width: double.infinity,
+                constraints: BoxConstraints(maxHeight: 300),
+                child: Image.network(
+                  selectedMeal.imageUrl,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                ),
+              )),
           Expanded(
             child: Transform.translate(
-              offset: const Offset(0, -20),
+              offset: const Offset(0, -40),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
