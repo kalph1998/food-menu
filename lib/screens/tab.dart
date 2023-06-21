@@ -79,25 +79,6 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                 ],
               ),
               label: ''),
-          BottomNavigationBarItem(
-              icon: Column(
-                children: [
-                  const Icon(
-                    Icons.settings_outlined,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 4),
-                    height: 6,
-                    width: 6,
-                    decoration: BoxDecoration(
-                        color: widget.selectedTabIndex == 2
-                            ? kPrimaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(30)),
-                  )
-                ],
-              ),
-              label: ''),
         ],
       ),
     );
