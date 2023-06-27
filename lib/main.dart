@@ -14,7 +14,7 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark));
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: OnboardScreen(),
+      home: const OnboardScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         MealDetail.routeName: (ctx) => MealDetail(),

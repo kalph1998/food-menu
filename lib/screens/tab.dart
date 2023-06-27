@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/favorites.dart';
 import 'package:food_menu/screens/home.dart';
+import 'package:food_menu/screens/meal_filters.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
   int selectedTabIndex;
@@ -25,6 +26,8 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
 
     if (widget.selectedTabIndex == 1) {
       activePage = const FavoritesScreen();
+    } else if (widget.selectedTabIndex == 2) {
+      activePage = FilterScreen();
     }
 
     return Scaffold(
@@ -71,6 +74,27 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     width: 6,
                     decoration: BoxDecoration(
                       color: widget.selectedTabIndex == 1
+                          ? kPrimaryColor
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  )
+                ],
+              ),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.filter_alt,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 4),
+                    height: 6,
+                    width: 6,
+                    decoration: BoxDecoration(
+                      color: widget.selectedTabIndex == 2
                           ? kPrimaryColor
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(30),

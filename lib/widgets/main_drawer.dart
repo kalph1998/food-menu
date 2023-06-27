@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/add_new_meal.dart';
 import 'package:food_menu/screens/meal_filters.dart';
 import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/home_app_bar.dart';
@@ -15,7 +16,6 @@ class MainDrawer extends StatelessWidget {
       // through the options in the drawer if there isn't enough vertical
       // space to fit everything.
       child: ListView(
-        // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
           const DrawerHeader(
@@ -66,6 +66,27 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(
+              Icons.add,
+              color: kDarkGreyFontColor,
+            ),
+            title: const Text(
+              'Add new meal',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => AddNewMeal()),
+              );
+              // Update the state of the app.
+              // ...
+            },
+          ),
+          ListTile(
+            leading: const Icon(
               Icons.favorite,
               color: kDarkGreyFontColor,
             ),
@@ -91,30 +112,10 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(
-              Icons.filter_alt,
-              color: kDarkGreyFontColor,
-            ),
-            title: Text(
-              'Filters',
-              style: TextStyle(
-                  color: kLightFontColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context)
-                  .pushReplacementNamed(FilterScreen.routeName);
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            leading: Icon(
               Icons.settings,
               color: kDarkGreyFontColor,
             ),
-            title: Text(
+            title: const Text(
               'Settings',
               style: TextStyle(
                   color: kLightFontColor,
