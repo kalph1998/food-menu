@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/meal.dart';
 import 'package:food_menu/providers/favorites_provider.dart';
-import 'package:food_menu/widgets/home_app_bar.dart';
+import 'package:food_menu/widgets/app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
 import 'package:food_menu/widgets/meal_tile.dart';
 

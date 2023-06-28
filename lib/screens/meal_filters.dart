@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/providers/filters_provider.dart';
-import 'package:food_menu/widgets/home_app_bar.dart';
+import 'package:food_menu/widgets/app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
 
 class FilterScreen extends ConsumerWidget {
