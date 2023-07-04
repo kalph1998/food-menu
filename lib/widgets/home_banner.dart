@@ -34,82 +34,79 @@ class HomeBanner extends StatelessWidget {
           Positioned(
             left: 10,
             top: 10,
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Menu for Dinner",
-                    style: TextStyle(
-                        color: kDarkGreyFontColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Chicken Baked",
-                    style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            color: kPrimaryColor,
-                            borderRadius: BorderRadius.circular(4)),
-                        child: const Icon(
-                          Icons.schedule,
-                          size: 18,
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Menu for Dinner",
+                  style: TextStyle(
+                      color: kDarkGreyFontColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Chicken Baked",
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(4)),
+                      child: const Icon(
+                        Icons.schedule,
+                        size: 18,
                       ),
-                      const SizedBox(
-                        width: 10,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      "30 min",
+                      style: TextStyle(color: kPrimaryColor),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(4)),
+                      child: const Icon(
+                        Icons.local_fire_department_outlined,
+                        size: 18,
                       ),
-                      const Text(
-                        "30 min",
-                        style: TextStyle(color: kPrimaryColor),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            color: kPrimaryColor,
-                            borderRadius: BorderRadius.circular(4)),
-                        child: const Icon(
-                          Icons.local_fire_department_outlined,
-                          size: 18,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        "Easy lvl",
-                        style: TextStyle(color: kPrimaryColor),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      "Easy lvl",
+                      style: TextStyle(color: kPrimaryColor),
+                    ),
+                  ],
+                )
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
-    ;
   }
 }

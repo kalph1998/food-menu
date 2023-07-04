@@ -80,6 +80,7 @@ class _AddNewMealState extends State<AddNewMeal> {
                 height: 20,
               ),
               DropdownButtonFormField(
+                value: Complexity.simple,
                 dropdownColor: kDarkGreyColor,
                 items: [
                   DropdownMenuItem(
