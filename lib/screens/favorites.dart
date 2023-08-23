@@ -55,7 +55,7 @@ class NoFavoritesCenterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
         child: Text(
       'No Favorite meal added',
       style: TextStyle(
