@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/add_new_meal.dart';
-import 'package:food_menu/screens/meal_filters.dart';
+
 import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 
@@ -79,7 +79,7 @@ class MainDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => AddNewMeal()),
+                MaterialPageRoute(builder: (_) => const AddNewMeal()),
               );
               // Update the state of the app.
               // ...
