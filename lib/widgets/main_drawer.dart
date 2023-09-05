@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/add_new_meal.dart';
-
 import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 
