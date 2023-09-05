@@ -4,11 +4,11 @@ import 'package:food_menu/providers/favorites_provider.dart';
 import 'package:food_menu/widgets/meal_info.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummy_data.dart';
-import 'package:food_menu/data/meal.dart';
+import 'package:food_menu/models/meal.dart';
 
 class MealDetail extends ConsumerWidget {
   static const routeName = '/meal';
-  MealDetail({super.key});
+  const MealDetail({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -72,7 +72,7 @@ class MealDetail extends ConsumerWidget {
               tag: 'dash${selectedMeal.id}',
               child: Container(
                 width: double.infinity,
-                constraints: BoxConstraints(maxHeight: 300),
+                constraints: const BoxConstraints(maxHeight: 300),
                 child: Image.network(
                   selectedMeal.imageUrl,
                   fit: BoxFit.cover,

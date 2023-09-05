@@ -1,4 +1,4 @@
-import 'package:food_menu/data/meal.dart';
+import 'package:food_menu/models/meal.dart';
 import 'package:food_menu/models/category.dart';
 
 const availableCategories = [

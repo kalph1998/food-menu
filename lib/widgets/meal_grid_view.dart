@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/meal.dart';
+import 'package:food_menu/models/meal.dart';
 import 'package:food_menu/providers/filters_provider.dart';
 import 'package:food_menu/providers/meal_category_provider.dart';
 import 'package:food_menu/widgets/meal_tile.dart';

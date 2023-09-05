@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/meal.dart';
+import 'package:food_menu/models/meal.dart';
 
 class MealInfo extends StatefulWidget {
   final Meal selectedMeal;
-  MealInfo({super.key, required this.selectedMeal});
+  const MealInfo({super.key, required this.selectedMeal});
 
   @override
   State<MealInfo> createState() => _MealInfoState();
@@ -43,7 +43,7 @@ class _MealInfoState extends State<MealInfo> {
                     ),
                     Text(
                       "${widget.selectedMeal.duration} minute",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: kLightFontColor,
                           fontSize: 18,
                           fontWeight: FontWeight.w600),
@@ -64,10 +64,10 @@ class _MealInfoState extends State<MealInfo> {
                 color: kDarkGreyFontColor,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 14),
-                child: Column(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: const Column(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.star,
                       color: kPrimaryColor,
                       size: 24,
@@ -95,7 +95,7 @@ class _MealInfoState extends State<MealInfo> {
                 color: kDarkGreyFontColor,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 child: Column(
                   children: [
                     const Icon(
@@ -105,12 +105,12 @@ class _MealInfoState extends State<MealInfo> {
                     ),
                     Text(
                       widget.selectedMeal.complexity.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: kLightFontColor,
                           fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
-                    Text(
+                    const Text(
                       "Recipes",
                       style: TextStyle(
                           color: kLightGreyFontColor,
@@ -122,7 +122,7 @@ class _MealInfoState extends State<MealInfo> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
