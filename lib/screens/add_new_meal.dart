@@ -55,6 +55,14 @@ class _AddNewMealState extends State<AddNewMeal> {
     );
   }
 
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+
+    if (!isValid) {
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
