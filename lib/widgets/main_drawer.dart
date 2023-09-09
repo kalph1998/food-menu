@@ -55,7 +55,7 @@ class MainDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (_) => HomeBottomNavBar(
-                    selectedTabIndex: 0,
+                    selectedTab: 0,
                   ),
                 ),
               );
@@ -101,7 +101,7 @@ class MainDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (_) => HomeBottomNavBar(
-                    selectedTabIndex: 1,
+                    selectedTab: 1,
                   ),
                 ),
               );

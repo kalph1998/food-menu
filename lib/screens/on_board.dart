@@ -21,7 +21,7 @@ class OnboardScreen extends StatelessWidget {
                 alignment: Alignment.center,
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 50),
+                margin: const EdgeInsets.only(bottom: 50),
                 decoration: const BoxDecoration(
                     color: kDarkColor,
                     borderRadius: BorderRadius.all(

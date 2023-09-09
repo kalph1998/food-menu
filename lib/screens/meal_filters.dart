@@ -7,7 +7,7 @@ import 'package:food_menu/widgets/main_drawer.dart';
 
 class FilterScreen extends ConsumerWidget {
   static const routeName = '/filters';
-  FilterScreen({super.key});
+  const FilterScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

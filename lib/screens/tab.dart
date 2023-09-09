@@ -5,18 +5,27 @@ import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/meal_filters.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
-  int selectedTabIndex;
   static const routeName = '/tab';
-  HomeBottomNavBar({super.key, this.selectedTabIndex = 0});
+  final int selectedTab;
+  const HomeBottomNavBar({super.key, this.selectedTab = 0});
 
   @override
   State<HomeBottomNavBar> createState() => _MyWidgetState();
 }
 
 class _MyWidgetState extends State<HomeBottomNavBar> {
+  int selectedTabIndex = 0;
+
+  @override
+  void initState() {
+    _selectPage(widget.selectedTab);
+    // TODO: implement initState
+    super.initState();
+  }
+
   void _selectPage(int index) {
     setState(() {
-      widget.selectedTabIndex = index;
+      selectedTabIndex = index;
     });
   }
 
@@ -24,10 +33,10 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
   Widget build(BuildContext context) {
     Widget activePage = const HomeScreen();
 
-    if (widget.selectedTabIndex == 1) {
+    if (selectedTabIndex == 1) {
       activePage = const FavoritesScreen();
-    } else if (widget.selectedTabIndex == 2) {
-      activePage = FilterScreen();
+    } else if (selectedTabIndex == 2) {
+      activePage = const FilterScreen();
     }
 
     return Scaffold(
@@ -39,7 +48,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: kDarkGreyFontColor,
-        currentIndex: widget.selectedTabIndex,
+        currentIndex: selectedTabIndex,
         onTap: _selectPage,
         items: [
           BottomNavigationBarItem(
@@ -53,7 +62,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                        color: widget.selectedTabIndex == 0
+                        color: selectedTabIndex == 0
                             ? kPrimaryColor
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(30)),
@@ -73,7 +82,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                      color: widget.selectedTabIndex == 1
+                      color: selectedTabIndex == 1
                           ? kPrimaryColor
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(30),
@@ -94,7 +103,7 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                      color: widget.selectedTabIndex == 2
+                      color: selectedTabIndex == 2
                           ? kPrimaryColor
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(30),
