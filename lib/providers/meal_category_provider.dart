@@ -10,4 +10,5 @@ class MealCategoryNotifier extends StateNotifier<String> {
 
 final mealCategoryProvider =
     StateNotifierProvider<MealCategoryNotifier, String>(
-        (ref) => MealCategoryNotifier());
+  (ref) => MealCategoryNotifier(),
+);

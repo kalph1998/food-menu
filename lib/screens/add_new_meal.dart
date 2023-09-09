@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummy_data.dart';
 import 'package:food_menu/models/meal.dart';
@@ -16,12 +17,18 @@ class _AddNewMealState extends State<AddNewMeal> {
   //form key
   final _formKey = GlobalKey<FormState>();
 
+  final List<TextEditingController> _items = [];
+
+  //values
+  String mealName = '';
+  String mealCategory = '';
+  int duration = 0;
+  Complexity complexity = Complexity.simple;
+  Affordability affordability = Affordability.affordable;
   bool isVegan = false;
   bool isVegetarian = false;
   bool isGlutenFree = false;
   bool isLactoseFree = false;
-
-  final List<TextEditingController> _items = [];
 
   _addItem() {
     setState(() {
@@ -61,6 +68,15 @@ class _AddNewMealState extends State<AddNewMeal> {
     if (!isValid) {
       return;
     }
+    _formKey.currentState!.save();
+    print(mealName);
+  }
+
+  String? requiredFieldValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "This field is required";
+    }
+    return null;
   }
 
   @override
@@ -75,7 +91,7 @@ class _AddNewMealState extends State<AddNewMeal> {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Form(
-          key: GlobalKey(),
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,6 +99,8 @@ class _AddNewMealState extends State<AddNewMeal> {
                 TextFormField(
                   style: const TextStyle(color: kLightFontColor),
                   decoration: inputDecorationStyle('Meal name'),
+                  validator: requiredFieldValidator,
+                  onSaved: (value) => mealName = value!,
                 ),
                 const SizedBox(
                   height: 20,
@@ -104,6 +122,9 @@ class _AddNewMealState extends State<AddNewMeal> {
                     );
                   }).toList(),
                   onChanged: (value) {},
+                  onSaved: (value) {
+                    mealCategory = value!;
+                  },
                   style: const TextStyle(color: kLightFontColor),
                   decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
@@ -129,6 +150,12 @@ class _AddNewMealState extends State<AddNewMeal> {
                 TextFormField(
                   style: const TextStyle(color: kLightFontColor),
                   decoration: inputDecorationStyle('Min'),
+                  validator: requiredFieldValidator,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ], // Only numbers can be entered
+                  onSaved: (value) => mealCategory = value!,
                 ),
                 const SizedBox(
                   height: 20,
@@ -161,6 +188,7 @@ class _AddNewMealState extends State<AddNewMeal> {
                     ),
                   ],
                   onChanged: (value) {},
+                  onSaved: (newValue) => complexity = newValue!,
                   style: const TextStyle(color: kLightFontColor),
                   decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
@@ -207,6 +235,7 @@ class _AddNewMealState extends State<AddNewMeal> {
                     ),
                   ],
                   onChanged: (value) {},
+                  onSaved: (newValue) => affordability,
                   style: const TextStyle(color: kLightFontColor),
                   decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
@@ -335,7 +364,7 @@ class _AddNewMealState extends State<AddNewMeal> {
                 Align(
                   alignment: Alignment.center,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _submit,
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(kPrimaryColor)),
