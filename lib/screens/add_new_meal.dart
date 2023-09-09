@@ -17,7 +17,15 @@ class _AddNewMealState extends State<AddNewMeal> {
   //form key
   final _formKey = GlobalKey<FormState>();
 
-  final List<TextEditingController> _items = [];
+  final List<TextEditingController> _ingredientsControllers = [];
+  final List<TextEditingController> _stepsController = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _addIngredient();
+    _addStep();
+  }
 
   //values
   String mealName = '';
@@ -25,20 +33,34 @@ class _AddNewMealState extends State<AddNewMeal> {
   int duration = 0;
   Complexity complexity = Complexity.simple;
   Affordability affordability = Affordability.affordable;
+  List<String> ingredients = [];
+  List<String> steps = [];
   bool isVegan = false;
   bool isVegetarian = false;
   bool isGlutenFree = false;
   bool isLactoseFree = false;
 
-  _addItem() {
+  _addIngredient() {
     setState(() {
-      _items.add(TextEditingController());
+      _ingredientsControllers.add(TextEditingController());
     });
   }
 
-  _removeItem(int index) {
+  _removeIngredient(int index) {
     setState(() {
-      _items.removeAt(index);
+      _ingredientsControllers.removeAt(index);
+    });
+  }
+
+  _addStep() {
+    setState(() {
+      _stepsController.add(TextEditingController());
+    });
+  }
+
+  _removeStep(int index) {
+    setState(() {
+      _stepsController.removeAt(index);
     });
   }
 
@@ -69,7 +91,10 @@ class _AddNewMealState extends State<AddNewMeal> {
       return;
     }
     _formKey.currentState!.save();
-    print(mealName);
+
+    for (var i = 0; i < _ingredientsControllers.length; i++) {
+      print(_ingredientsControllers[i].text);
+    }
   }
 
   String? requiredFieldValidator(String? value) {
@@ -258,23 +283,27 @@ class _AddNewMealState extends State<AddNewMeal> {
                   'Ingredients',
                   style: TextStyle(color: kLightFontColor, fontSize: 20),
                 ),
-                for (int i = 0; i < _items.length; i++)
+                for (int i = 0; i < _ingredientsControllers.length; i++)
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: _items[i],
+                          controller: _ingredientsControllers[i],
                           style: const TextStyle(color: kLightFontColor),
                           decoration: inputDecorationStyle('Item'),
+                          validator: requiredFieldValidator,
                         ),
                       ),
                       InkWell(
                         onTap: () {
-                          _removeItem(i);
+                          _removeIngredient(i);
                         },
                         child: const SizedBox(
-                          child: Icon(Icons.cancel),
+                          child: Icon(
+                            Icons.cancel,
+                            color: Colors.white,
+                          ),
                         ),
                       )
                     ],
@@ -286,7 +315,54 @@ class _AddNewMealState extends State<AddNewMeal> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: _addItem,
+                      onPressed: _addIngredient,
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(kPrimaryColor)),
+                      child: const Text(
+                        'Add Item',
+                        style: TextStyle(color: kDarkColor),
+                      ),
+                    ),
+                  ],
+                ),
+                const Text(
+                  'Steps',
+                  style: TextStyle(color: kLightFontColor, fontSize: 20),
+                ),
+                for (int i = 0; i < _stepsController.length; i++)
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: _stepsController[i],
+                          style: const TextStyle(color: kLightFontColor),
+                          decoration: inputDecorationStyle('Step'),
+                          validator: requiredFieldValidator,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          _removeStep(i);
+                        },
+                        child: const SizedBox(
+                          child: Icon(
+                            Icons.cancel,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: _addStep,
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(kPrimaryColor)),
@@ -361,19 +437,28 @@ class _AddNewMealState extends State<AddNewMeal> {
                         }
                       });
                     }),
+                const SizedBox(
+                  height: 20,
+                ),
                 Align(
                   alignment: Alignment.center,
-                  child: ElevatedButton(
-                    onPressed: _submit,
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(kPrimaryColor)),
-                    child: const Text(
-                      'Add meal',
-                      style: TextStyle(color: kDarkColor),
+                  child: SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: _submit,
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(kPrimaryColor)),
+                      child: const Text(
+                        'Add meal',
+                        style: TextStyle(color: kDarkColor),
+                      ),
                     ),
                   ),
-                )
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),
