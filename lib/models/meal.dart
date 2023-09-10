@@ -15,7 +15,8 @@ class Meal {
     required this.id,
     required this.categories,
     required this.title,
-    required this.imageUrl,
+    this.imageUrl =
+        'https://images.pexels.com/photos/10897655/pexels-photo-10897655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     required this.ingredients,
     required this.steps,
     required this.duration,

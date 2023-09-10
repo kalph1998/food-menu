@@ -19,7 +19,6 @@ class _MyWidgetState extends State<HomeBottomNavBar> {
   @override
   void initState() {
     _selectPage(widget.selectedTab);
-    // TODO: implement initState
     super.initState();
   }
 

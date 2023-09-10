@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummy_data.dart';
 import 'package:food_menu/models/meal.dart';
+import 'package:food_menu/providers/meals_provider.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
 
-class AddNewMeal extends StatefulWidget {
+class AddNewMeal extends ConsumerStatefulWidget {
   const AddNewMeal({super.key});
 
   @override
-  State<AddNewMeal> createState() => _AddNewMealState();
+  ConsumerState<AddNewMeal> createState() => _AddNewMealState();
 }
 
-class _AddNewMealState extends State<AddNewMeal> {
+class _AddNewMealState extends ConsumerState<AddNewMeal> {
   //form key
   final _formKey = GlobalKey<FormState>();
 
@@ -93,8 +95,27 @@ class _AddNewMealState extends State<AddNewMeal> {
     _formKey.currentState!.save();
 
     for (var i = 0; i < _ingredientsControllers.length; i++) {
-      print(_ingredientsControllers[i].text);
+      ingredients.add(_ingredientsControllers[i].text);
     }
+    for (var i = 0; i < _stepsController.length; i++) {
+      steps.add(_stepsController[i].text);
+    }
+
+    Meal newMeal = Meal(
+      id: DateTime.now().toString(),
+      categories: [mealCategory],
+      title: mealName,
+      ingredients: ingredients,
+      steps: steps,
+      duration: duration,
+      complexity: complexity,
+      affordability: affordability,
+      isGlutenFree: isGlutenFree,
+      isLactoseFree: isLactoseFree,
+      isVegan: isVegan,
+      isVegetarian: isVegetarian,
+    );
+    ref.read(mealsProvider.notifier).addMeal(newMeal);
   }
 
   String? requiredFieldValidator(String? value) {
@@ -138,17 +159,18 @@ class _AddNewMealState extends State<AddNewMeal> {
                   height: 20,
                 ),
                 DropdownButtonFormField(
-                  value: 'Quick & Easy',
+                  value: 'c3',
                   dropdownColor: kDarkGreyColor,
                   items: availableCategories.map((category) {
                     return DropdownMenuItem(
-                      value: category.title,
+                      value: category.id,
                       child: Text(category.title),
                     );
                   }).toList(),
                   onChanged: (value) {},
                   onSaved: (value) {
                     mealCategory = value!;
+                    print(mealCategory);
                   },
                   style: const TextStyle(color: kLightFontColor),
                   decoration: const InputDecoration(
@@ -173,15 +195,16 @@ class _AddNewMealState extends State<AddNewMeal> {
                   style: TextStyle(color: kLightFontColor, fontSize: 20),
                 ),
                 TextFormField(
-                  style: const TextStyle(color: kLightFontColor),
-                  decoration: inputDecorationStyle('Min'),
-                  validator: requiredFieldValidator,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // Only numbers can be entered
-                  onSaved: (value) => mealCategory = value!,
-                ),
+                    style: const TextStyle(color: kLightFontColor),
+                    decoration: inputDecorationStyle('Min'),
+                    validator: requiredFieldValidator,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ], // Only numbers can be entered
+                    onSaved: (value) {
+                      duration = int.parse(value!);
+                    }),
                 const SizedBox(
                   height: 20,
                 ),
@@ -367,7 +390,7 @@ class _AddNewMealState extends State<AddNewMeal> {
                           backgroundColor:
                               MaterialStateProperty.all(kPrimaryColor)),
                       child: const Text(
-                        'Add Item',
+                        'Add Step',
                         style: TextStyle(color: kDarkColor),
                       ),
                     ),
