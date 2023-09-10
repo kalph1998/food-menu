@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_menu/providers/favorites_provider.dart';
+import 'package:food_menu/providers/meals_provider.dart';
 import 'package:food_menu/widgets/meal_info.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/data/dummy_data.dart';
 import 'package:food_menu/models/meal.dart';
 
 class MealDetail extends ConsumerWidget {
@@ -13,8 +13,9 @@ class MealDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mealId = ModalRoute.of(context)!.settings.arguments;
+
     Meal selectedMeal =
-        dummyMeals.firstWhere((element) => element.id == mealId);
+        ref.watch(mealsProvider).firstWhere((element) => element.id == mealId);
     final favoriteMeals = ref.watch(favoriteMealsProvider);
     final bool isMealFavorite = favoriteMeals.contains(selectedMeal);
 
