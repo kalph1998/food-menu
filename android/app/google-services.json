@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159908300284",
+    "project_id": "flutter-food-menu-41e5e",
+    "storage_bucket": "flutter-food-menu-41e5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159908300284:android:fb6b4d25edb646db985e79",
+        "android_client_info": {
+          "package_name": "com.example.food_menu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqEBtvixB8ID5Gqzu2Rp2VQjqXWzGtUoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

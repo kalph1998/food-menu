@@ -38,6 +38,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   riverpod: ^2.3.6
   flutter_riverpod: ^2.3.6
+  firebase_core: ^2.15.1
 
 dev_dependencies:
   flutter_test:

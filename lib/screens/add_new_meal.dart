@@ -5,6 +5,7 @@ import 'package:food_menu/constants.dart';
 import 'package:food_menu/data/dummy_data.dart';
 import 'package:food_menu/models/meal.dart';
 import 'package:food_menu/providers/meals_provider.dart';
+import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
 
@@ -94,13 +95,16 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
     }
     _formKey.currentState!.save();
 
+    addNewMeal();
+  }
+
+  addNewMeal() {
     for (var i = 0; i < _ingredientsControllers.length; i++) {
       ingredients.add(_ingredientsControllers[i].text);
     }
     for (var i = 0; i < _stepsController.length; i++) {
       steps.add(_stepsController[i].text);
     }
-
     Meal newMeal = Meal(
       id: DateTime.now().toString(),
       categories: [mealCategory],
@@ -116,6 +120,9 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
       isVegetarian: isVegetarian,
     );
     ref.read(mealsProvider.notifier).addMeal(newMeal);
+
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (ctx) => const HomeScreen()));
   }
 
   String? requiredFieldValidator(String? value) {
@@ -473,7 +480,7 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
                           backgroundColor:
                               MaterialStateProperty.all(kPrimaryColor)),
                       child: const Text(
-                        'Add meal',
+                        'Add new meal',
                         style: TextStyle(color: kDarkColor),
                       ),
                     ),
