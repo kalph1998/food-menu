@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
-import 'package:food_menu/screens/tab.dart';
+import 'package:food_menu/screens/login.dart';
 
 class OnboardScreen extends StatelessWidget {
   const OnboardScreen({super.key});
@@ -63,14 +63,14 @@ class OnboardScreen extends StatelessWidget {
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context)
-                          .pushReplacementNamed(HomeBottomNavBar.routeName),
+                      onTap: () => Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (ctx) => const Login())),
                       child: Container(
                         alignment: Alignment.center,
                         height: 52,
                         width: 200,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).colorScheme.inversePrimary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Text(

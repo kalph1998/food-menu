@@ -36,10 +36,9 @@ class MyApp extends StatelessWidget {
       title: 'Food Menu',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: const ColorScheme.light(),
+        colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
         scaffoldBackgroundColor: kDarkColor,
         fontFamily: GoogleFonts.lato().fontFamily,
-        primaryColor: kPrimaryColor,
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
