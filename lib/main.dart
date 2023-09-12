@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -42,7 +43,15 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const OnboardScreen(),
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (ctx, snapshot) {
+            print('called');
+            if (snapshot.hasData) {
+              return const HomeScreen();
+            }
+            return const OnboardScreen();
+          }),
       routes: {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         MealDetail.routeName: (ctx) => const MealDetail(),

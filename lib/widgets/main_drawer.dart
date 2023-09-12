@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/add_new_meal.dart';
@@ -54,7 +55,7 @@ class MainDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => HomeBottomNavBar(
+                  builder: (_) => const HomeBottomNavBar(
                     selectedTab: 0,
                   ),
                 ),
@@ -100,7 +101,7 @@ class MainDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => HomeBottomNavBar(
+                  builder: (_) => const HomeBottomNavBar(
                     selectedTab: 1,
                   ),
                 ),
@@ -124,6 +125,22 @@ class MainDrawer extends StatelessWidget {
             onTap: () {
               // Update the state of the app.
               // ...
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.logout,
+              color: kDarkGreyFontColor,
+            ),
+            title: const Text(
+              'Logout',
+              style: TextStyle(
+                  color: kLightFontColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
             },
           ),
         ],

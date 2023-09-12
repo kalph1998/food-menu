@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
+import 'package:food_menu/screens/home.dart';
+import 'package:food_menu/utils/firebase.dart';
 import 'package:food_menu/utils/validations.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-final _firebase = FirebaseAuth.instance;
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
     return null;
   }
 
-  _submit() {
+  _submit() async {
     var isFormValid = _formKey.currentState!.validate();
     if (!isFormValid) {
       return;
@@ -48,13 +48,34 @@ class _LoginState extends State<Login> {
     _formKey.currentState!.save();
 
     if (_isLogin) {
+      try {
+        await FirebaseAuthenticationWrapper()
+            .loginUser(email: email, password: password);
+        if (mounted) {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: ((context) => const HomeScreen())));
+        }
+      } on FirebaseAuthException catch (error) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(error.message ?? "Authentication failed"),
+            ),
+          );
+        }
+      }
     } else {
       try {
-        var response = _firebase.createUserWithEmailAndPassword(
-            email: email, password: password);
-        print(response);
-      } catch (e) {
-        print(e);
+        await FirebaseAuthenticationWrapper()
+            .createUser(email: email, password: password);
+      } on FirebaseAuthException catch (error) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(error.message ?? "Authentication failed"),
+            ),
+          );
+        }
       }
     }
   }
