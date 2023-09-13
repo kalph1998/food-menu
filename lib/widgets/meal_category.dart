@@ -38,7 +38,7 @@ class _MealCategoryListViewState extends ConsumerState<MealCategoryListView> {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                     color: selectedMealIndex == index
-                        ? Theme.of(context).primaryColor
+                        ? Theme.of(context).colorScheme.inversePrimary
                         : kDarkGreyColor,
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/add_new_meal.dart';
+import 'package:food_menu/screens/on_board.dart';
 import 'package:food_menu/screens/tab.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 
@@ -139,8 +140,10 @@ class MainDrawer extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold),
             ),
-            onTap: () async {
-              await FirebaseAuth.instance.signOut();
+            onTap: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (ctx) => const OnboardScreen()));
             },
           ),
         ],

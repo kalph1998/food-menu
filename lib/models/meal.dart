@@ -43,4 +43,20 @@ class Meal {
   final bool isVegan;
   final bool isVegetarian;
   final int rating;
+
+  Map<String, dynamic> toJson() => {
+        'categories': categories,
+        'title': title,
+        'imageUrl': imageUrl,
+        'ingredients': ingredients,
+        'steps': steps,
+        'duration': duration,
+        'complexity': complexity,
+        'affordability': affordability,
+        'isGlutenFree': isGlutenFree,
+        'isLactoseFree': isLactoseFree,
+        'isVegan': isVegan,
+        'isVegetarian': isVegetarian,
+        'rating': rating
+      };
 }
