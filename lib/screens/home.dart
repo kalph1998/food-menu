@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_menu/utils/firebase.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 import 'package:food_menu/widgets/home_banner.dart';
 import 'package:food_menu/widgets/main_drawer.dart';
@@ -16,12 +16,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String? userName = FirebaseAuthenticationWrapper().userName ?? 'Amanda';
+  String? token = FirebaseAuthenticationWrapper().userToken;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDarkColor,
-      appBar: const HomeAppBar(
-        title: 'Hi, Amanda',
+      appBar: HomeAppBar(
+        title: 'Hi, $userName',
         subtitle: 'Ready to cook for dinner ?',
       ),
       drawer: const MainDrawer(),

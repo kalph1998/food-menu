@@ -4,6 +4,7 @@ import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/add_new_meal.dart';
 import 'package:food_menu/screens/on_board.dart';
 import 'package:food_menu/screens/tab.dart';
+import 'package:food_menu/utils/firebase.dart';
 import 'package:food_menu/widgets/app_bar.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -11,6 +12,7 @@ class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userName = FirebaseAuthenticationWrapper().userName ?? 'Amanda';
     return Drawer(
       backgroundColor: kDarkGreyColor,
       // Add a ListView to the drawer. This ensures the user can scroll
@@ -19,23 +21,24 @@ class MainDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
+          DrawerHeader(
+            decoration: const BoxDecoration(
               color: kPrimaryColor,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 36,
                   backgroundImage: NetworkImage(HomeAppBar.profileUrl),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Amanda Cerny",
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  userName,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 18),
                 )
               ],
             ),

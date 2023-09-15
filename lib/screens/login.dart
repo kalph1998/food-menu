@@ -51,6 +51,8 @@ class _LoginState extends State<Login> {
       try {
         await FirebaseAuthenticationWrapper()
             .loginUser(email: email, password: password);
+        await FirebaseAuthenticationWrapper().updateUserName('Kalph');
+
         if (mounted) {
           Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: ((context) => const HomeScreen())));

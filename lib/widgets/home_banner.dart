@@ -50,7 +50,7 @@ class HomeBanner extends StatelessWidget {
                 Text(
                   "Chicken Baked",
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
