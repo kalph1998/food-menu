@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:food_menu/constants.dart';
 import 'package:food_menu/screens/login.dart';
+import 'package:food_menu/translations/locale_keys.g.dart';
 
 class OnboardScreen extends StatelessWidget {
   const OnboardScreen({super.key});
@@ -39,6 +41,13 @@ class OnboardScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Column(
                   children: [
+                    Text(
+                      LocaleKeys.Hello.tr(),
+                      style: const TextStyle(
+                          color: kLightFontColor,
+                          fontSize: 28,
+                          fontWeight: FontWeight.w700),
+                    ),
                     const Text(
                       "Simplify your \n cooking plan",
                       textAlign: TextAlign.center,
