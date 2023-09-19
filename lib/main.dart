@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +9,7 @@ import 'package:food_menu/screens/home.dart';
 import 'package:food_menu/screens/meal_detail.dart';
 import 'package:food_menu/screens/on_board.dart';
 import 'package:food_menu/screens/tab.dart';
+import 'package:food_menu/utils/http_asset_loader.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -32,8 +31,9 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('nl')],
-      path: 'assets/translations',
+      path: 'http://localhost:3000/nl',
       fallbackLocale: const Locale('en'),
+      assetLoader: const HttpAssetLoader(),
       child: const ProviderScope(
         child: MyApp(),
       ),
